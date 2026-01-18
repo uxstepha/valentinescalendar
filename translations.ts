@@ -1,0 +1,186 @@
+import type { Language } from "./types"
+
+export const translations: Record<Language, Record<string, string>> = {
+  es: {
+    // Landing page
+    "landing.badge": "14 Días de Amor",
+    "landing.title1": "Crea un Calendario",
+    "landing.title2": "de San Valentín",
+    "landing.description": "Escribe 14 mensajes románticos que se desbloquean uno por día hasta el 14 de febrero. ¡Una sorpresa especial para esa persona especial!",
+    "landing.cta": "¡Comenzar a Crear!",
+    "landing.feature1.title": "14 Mensajes",
+    "landing.feature1.desc": "Uno para cada día",
+    "landing.feature2.title": "5 Plantillas",
+    "landing.feature2.desc": "Hermosos diseños",
+    "landing.feature3.title": "Fácil de Compartir",
+    "landing.feature3.desc": "Un solo enlace",
+
+    // Creator flow
+    "creator.title": "Crea Tu Calendario de San Valentín",
+    "creator.step.template": "Plantilla",
+    "creator.step.messages": "Mensajes",
+    "creator.step.preview": "Vista Previa",
+    "creator.step.share": "Compartir",
+    "creator.whoFor": "¿Para quién es esto?",
+    "creator.nameplaceholder": "Escribe su nombre...",
+    "creator.chooseLanguage": "Elige el Idioma",
+    "creator.languageDesc": "Selecciona el idioma para los mensajes de tu calendario",
+    "creator.chooseTemplate": "Elige Tu Plantilla",
+    "creator.nextMessages": "Siguiente: Escribir Mensajes",
+    "creator.back": "Atrás",
+    "creator.previewCalendar": "Vista Previa",
+    "creator.editMessages": "Editar Mensajes",
+    "creator.getLink": "Obtener Enlace",
+    "creator.previewTitle": "Vista Previa de Tu Calendario",
+    "creator.fullPreview": "Vista Completa",
+    "creator.lockedView": "Vista Bloqueada",
+    "creator.fullPreviewDesc": "Haz clic en cualquier tarjeta para ver la animación completa del sobre y el contenido",
+    "creator.lockedViewDesc": "Así es como tu destinatario lo verá con todas las tarjetas bloqueadas",
+    "creator.shareReady": "¡Tu Calendario Está Listo!",
+    "creator.shareDesc": "Comparte este enlace con tu persona especial. ¡Podrán abrir una tarjeta cada día hasta San Valentín!",
+    "creator.shareNote": "Una vez que compartas el enlace, las tarjetas se bloquearán y se desbloquearán día a día del 1 al 14 de febrero.",
+    "creator.copied": "¡Copiado!",
+    "creator.copy": "Copiar",
+    "creator.linkNote": "Nota: Los datos del calendario están codificados en la URL. ¡Guarda este enlace!",
+    "creator.backToPreview": "Volver a Vista Previa",
+    "creator.testAsReceiver": "Probar como Receptor",
+
+    // Message editor
+    "editor.title": "Escribe Tus Mensajes",
+    "editor.valentinesDay": "Día de San Valentín - 14 de Febrero",
+    "editor.day": "Día",
+    "editor.february": "Febrero",
+    "editor.specialDay": "¡Día Especial!",
+    "editor.placeholder": "Escribe tu mensaje para este día...",
+    "editor.placeholderValentine": "Escribe tu mensaje especial de San Valentín...",
+    "editor.addImage": "Agregar una imagen (opcional)",
+    "editor.upload": "Subir",
+    "editor.chooseImage": "Elegir imagen",
+    "editor.changeImage": "Cambiar imagen",
+    "editor.animation": "Animación",
+    "editor.messages": "mensajes",
+
+    // Template names
+    "template.romantic-soft": "Romántico Suave",
+    "template.romantic-soft.desc": "Corazones dulces en rojo, rosa y blanco con explosiones de corazones",
+    "template.cute-pastel": "Pastel Tierno",
+    "template.cute-pastel.desc": "Tonos suaves de acuarela en beige, marrón y rosa pastel",
+    "template.elegant-minimal": "Elegante Minimal",
+    "template.elegant-minimal.desc": "Negro y dorado lujoso con revelaciones de caja de regalo",
+    "template.playful-love": "Amor Juguetón",
+    "template.playful-love.desc": "¡Confeti colorido, corazones y puntos por todas partes!",
+    "template.dreamy-night": "Noche de Ensueño",
+    "template.dreamy-night.desc": "Cielos estrellados, brillo de luna y gatitos bajo las estrellas",
+
+    // Calendar card
+    "card.locked": "Bloqueado",
+    "card.tapToOpen": "Toca para abrir",
+    "card.close": "Cerrar",
+    "card.clickToView": "Clic para ver",
+
+    // View content
+    "view.error": "¡Ups!",
+    "view.invalidLink": "Enlace de calendario inválido. Por favor pide uno nuevo.",
+    "view.noData": "No se encontraron datos del calendario en el enlace.",
+
+    // Navigation
+    "nav.returnHome": "Regresar al inicio",
+    "nav.createYourOwn": "Crea tu propio calendario",
+
+    // Receiver view
+    "view.notYet": "Aún no… esta carta espera su día",
+  },
+  en: {
+    // Landing page
+    "landing.badge": "14 Days of Love",
+    "landing.title1": "Create a Valentine's",
+    "landing.title2": "Countdown Calendar",
+    "landing.description": "Write 14 heartfelt messages that unlock one day at a time until February 14th. A romantic surprise for your special someone!",
+    "landing.cta": "Start Creating!",
+    "landing.feature1.title": "14 Messages",
+    "landing.feature1.desc": "One for each day",
+    "landing.feature2.title": "5 Templates",
+    "landing.feature2.desc": "Beautiful themes",
+    "landing.feature3.title": "Easy Sharing",
+    "landing.feature3.desc": "One link to share",
+
+    // Creator flow
+    "creator.title": "Create Your Valentine's Calendar",
+    "creator.step.template": "Template",
+    "creator.step.messages": "Messages",
+    "creator.step.preview": "Preview",
+    "creator.step.share": "Share",
+    "creator.whoFor": "Who is this for?",
+    "creator.nameplaceholder": "Enter their name...",
+    "creator.chooseLanguage": "Choose Language",
+    "creator.languageDesc": "Select the language for your calendar messages",
+    "creator.chooseTemplate": "Choose Your Template",
+    "creator.nextMessages": "Next: Write Messages",
+    "creator.back": "Back",
+    "creator.previewCalendar": "Preview Calendar",
+    "creator.editMessages": "Edit Messages",
+    "creator.getLink": "Get Shareable Link",
+    "creator.previewTitle": "Preview Your Calendar",
+    "creator.fullPreview": "Full Preview",
+    "creator.lockedView": "Locked View",
+    "creator.fullPreviewDesc": "Click any card to see the full envelope animation and content",
+    "creator.lockedViewDesc": "This is how your recipient will see it with all cards locked",
+    "creator.shareReady": "Your Calendar is Ready!",
+    "creator.shareDesc": "Share this link with your special someone. They'll be able to open one card each day until Valentine's Day!",
+    "creator.shareNote": "Once you share the link, cards will be locked and unlock day by day from February 1st to 14th.",
+    "creator.copied": "Copied!",
+    "creator.copy": "Copy",
+    "creator.linkNote": "Note: The calendar data is encoded in the URL. Keep this link safe!",
+    "creator.backToPreview": "Back to Preview",
+    "creator.testAsReceiver": "Test as Receiver",
+
+    // Message editor
+    "editor.title": "Write Your Messages",
+    "editor.valentinesDay": "Valentine's Day - February 14",
+    "editor.day": "Day",
+    "editor.february": "February",
+    "editor.specialDay": "Special Day!",
+    "editor.placeholder": "Write your message for this day...",
+    "editor.placeholderValentine": "Write your special Valentine's Day message...",
+    "editor.addImage": "Add an image (optional)",
+    "editor.upload": "Upload",
+    "editor.chooseImage": "Choose an image",
+    "editor.changeImage": "Change image",
+    "editor.animation": "Animation",
+    "editor.messages": "messages",
+
+    // Template names
+    "template.romantic-soft": "Romantic Soft",
+    "template.romantic-soft.desc": "Sweet hearts in red, pink & white with heart explosions",
+    "template.cute-pastel": "Cute Pastel",
+    "template.cute-pastel.desc": "Soft watercolor tones in beige, brown & pastel pink",
+    "template.elegant-minimal": "Elegant Minimal",
+    "template.elegant-minimal.desc": "Luxurious black & gold with gift box reveals",
+    "template.playful-love": "Playful Love",
+    "template.playful-love.desc": "Colorful confetti, hearts & dots everywhere!",
+    "template.dreamy-night": "Dreamy Night",
+    "template.dreamy-night.desc": "Starry skies, moon glow & cats under the stars",
+
+    // Calendar card
+    "card.locked": "Locked",
+    "card.tapToOpen": "Tap to open",
+    "card.close": "Close",
+    "card.clickToView": "Click to view",
+
+    // View content
+    "view.error": "Oops!",
+    "view.invalidLink": "Invalid calendar link. Please ask for a new one.",
+    "view.noData": "No calendar data found in the link.",
+
+    // Navigation
+    "nav.returnHome": "Return to home",
+    "nav.createYourOwn": "Create your own calendar",
+
+    // Receiver view
+    "view.notYet": "Not yet... this one is waiting for its day",
+  },
+}
+
+export function t(key: string, language: Language): string {
+  return translations[language][key] || key
+}
