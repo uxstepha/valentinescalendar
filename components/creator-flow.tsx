@@ -8,9 +8,9 @@ import { MessageEditor } from "./message-editor"
 import { CalendarGrid } from "./calendar-grid"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ArrowLeft, ArrowRight, Eye, Share2, Copy, Check, Sparkles, Lock, Globe, Home } from "lucide-react"
+import { ArrowLeft, ArrowRight, Eye, Share2, Copy, Check, Sparkles, Lock, Globe, Home, Clock, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { LANGUAGES } from "@/lib/types"
+import { LANGUAGES, TIMEZONES } from "@/lib/types"
 import { t } from "@/lib/translations"
 
 type Step = "template" | "messages" | "preview" | "share"
@@ -30,11 +30,12 @@ function DoodleHeart({ className, filled }: { className?: string; filled?: boole
 }
 
 export function CreatorFlow() {
-  const { calendarData, setTemplate, setRecipientName, setLanguage, updateCard, getShareableLink, setPreviewMode, resetCalendar, language } =
+  const { calendarData, setTemplate, setRecipientName, setLanguage, setTimezone, updateCard, getShareableLink, setPreviewMode, resetCalendar, language } =
     useCalendar()
   const [step, setStep] = useState<Step>("template")
   const [copied, setCopied] = useState(false)
   const [previewType, setPreviewType] = useState<"creator" | "locked">("creator")
+  const [timezoneOpen, setTimezoneOpen] = useState(false)
 
   if (!calendarData) return null
 
@@ -145,6 +146,47 @@ export function CreatorFlow() {
                     <span>{lang.name}</span>
                   </button>
                 ))}
+              </div>
+            </div>
+
+            {/* Timezone Selector */}
+            <div className="space-y-3 sm:space-y-4 bg-white/80 rounded-2xl p-4 sm:p-6 border-2 border-dashed border-rose-200">
+              <h2 className="text-xl sm:text-2xl font-[var(--font-display)] text-rose-800 flex items-center gap-2">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                {t("creator.chooseTimezone", language)}
+              </h2>
+              <p className="text-rose-600/70 text-xs sm:text-sm">{t("creator.timezoneDesc", language)}</p>
+              <div className="relative">
+                <button
+                  onClick={() => setTimezoneOpen(!timezoneOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl border-2 border-dashed border-rose-200 bg-white text-left font-[var(--font-display)] text-sm sm:text-base text-rose-600 hover:border-rose-400 transition-all"
+                >
+                  <span>
+                    {calendarData.timezone
+                      ? TIMEZONES.find((tz) => tz.id === calendarData.timezone)?.label
+                      : t("creator.selectTimezone", language)}
+                  </span>
+                  <ChevronDown className={cn("w-4 h-4 transition-transform", timezoneOpen && "rotate-180")} />
+                </button>
+                {timezoneOpen && (
+                  <div className="absolute z-20 mt-2 w-full max-h-60 overflow-y-auto bg-white rounded-xl border-2 border-dashed border-rose-200 shadow-lg">
+                    {TIMEZONES.map((tz) => (
+                      <button
+                        key={tz.id}
+                        onClick={() => {
+                          setTimezone(tz.id)
+                          setTimezoneOpen(false)
+                        }}
+                        className={cn(
+                          "w-full px-4 py-2 text-left text-sm hover:bg-rose-50 transition-colors font-[var(--font-display)]",
+                          calendarData.timezone === tz.id ? "bg-rose-100 text-rose-700" : "text-rose-600",
+                        )}
+                      >
+                        {tz.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 

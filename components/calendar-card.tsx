@@ -433,7 +433,7 @@ const playfulLoveEnvelopePhrases: Record<string, string[]> = {
 // It was causing the lint error: lint/suspicious/noRedeclare
 // The interface is correctly defined in ./types
 
-export function CalendarCard({ card, template, isCreatorPreview = false, isReceiverView = false, language = "es" }: CalendarCardProps) {
+export function CalendarCard({ card, template, isCreatorPreview = false, isReceiverView = false, language = "es", timezone }: CalendarCardProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [showEnvelope, setShowEnvelope] = useState(false)
   const [envelopeOpened, setEnvelopeOpened] = useState(false)
@@ -444,6 +444,25 @@ export function CalendarCard({ card, template, isCreatorPreview = false, isRecei
   const [showPolaroid, setShowPolaroid] = useState(false)
   const [showNote, setShowNote] = useState(false)
   const [showLockedMessage, setShowLockedMessage] = useState(false)
+  const [timeRemaining, setTimeRemaining] = useState<{ days: number; hours: number } | null>(null)
+
+  const calculateTimeRemaining = () => {
+    const year = new Date().getFullYear()
+    const cardDate = new Date(year, 1, card.day) // February is month 1
+    cardDate.setHours(0, 0, 0, 0)
+    
+    const now = new Date()
+    if (timezone) {
+      const nowInTz = new Date(now.toLocaleString("en-US", { timeZone: timezone }))
+      const diff = cardDate.getTime() - nowInTz.getTime()
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        return { days, hours }
+      }
+    }
+    return null
+  }
 
   const styles = templateStyles[template]
   const isValentine = card.day === 14
@@ -455,8 +474,10 @@ export function CalendarCard({ card, template, isCreatorPreview = false, isRecei
   const handleClick = () => {
     if (!canOpen) {
       if (isReceiverView) {
+        const remaining = calculateTimeRemaining()
+        setTimeRemaining(remaining)
         setShowLockedMessage(true)
-        setTimeout(() => setShowLockedMessage(false), 3000)
+        setTimeout(() => setShowLockedMessage(false), 4000)
       }
       return
     }
@@ -1365,10 +1386,26 @@ export function CalendarCard({ card, template, isCreatorPreview = false, isRecei
 
       {/* Locked message toast for receiver view */}
       {showLockedMessage && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border-2 border-dashed border-rose-200 animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border-2 border-dashed border-rose-200 animate-in fade-in slide-in-from-bottom-4 duration-300 max-w-[90vw]">
           <p className={cn("text-center text-rose-600 font-[var(--font-display)]", styles.fontDisplay)}>
             {t("view.notYet", language)} <span className="inline-block">💕</span>
           </p>
+          {timeRemaining && (timeRemaining.days > 0 || timeRemaining.hours > 0) && (
+            <p className={cn("text-center text-rose-500 text-sm mt-2 font-[var(--font-display)]", styles.fontDisplay)}>
+              {t("view.canOpenIn", language)}{" "}
+              {timeRemaining.days > 0 && (
+                <>
+                  {timeRemaining.days} {timeRemaining.days === 1 ? t("view.day", language) : t("view.days", language)}
+                  {timeRemaining.hours > 0 && ` ${t("view.and", language)} `}
+                </>
+              )}
+              {timeRemaining.hours > 0 && (
+                <>
+                  {timeRemaining.hours} {timeRemaining.hours === 1 ? t("view.hour", language) : t("view.hours", language)}
+                </>
+              )}
+            </p>
+          )}
         </div>
       )}
     </>

@@ -9,6 +9,7 @@ interface CalendarContextType {
   setTemplate: (template: Template) => void
   setRecipientName: (name: string) => void
   setLanguage: (language: Language) => void
+  setTimezone: (timezone: string) => void
   updateCard: (day: number, updates: Partial<DayCard>) => void
   getShareableLink: () => string
   initializeCalendar: () => void
@@ -57,6 +58,12 @@ export function CalendarProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  const setTimezone = (timezone: string) => {
+    if (calendarData) {
+      setCalendarData({ ...calendarData, timezone })
+    }
+  }
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)
     if (calendarData) {
@@ -87,6 +94,7 @@ export function CalendarProvider({ children }: { children: ReactNode }) {
         setTemplate,
         setRecipientName,
         setLanguage,
+        setTimezone,
         updateCard,
         getShareableLink,
         initializeCalendar,

@@ -13,4 +13,5 @@ export interface CalendarCardProps {
   isUnlocked?: boolean
   isPreview?: boolean
   language?: Language
+  timezone?: string
 }

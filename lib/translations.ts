@@ -25,6 +25,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "creator.nameplaceholder": "Escribe su nombre...",
     "creator.chooseLanguage": "Elige el Idioma",
     "creator.languageDesc": "Selecciona el idioma para los mensajes de tu calendario",
+    "creator.chooseTimezone": "Zona Horaria",
+    "creator.timezoneDesc": "Las cartas se desbloquean a medianoche en esta zona horaria",
+    "creator.selectTimezone": "Selecciona tu zona horaria",
     "creator.chooseTemplate": "Elige Tu Plantilla",
     "creator.nextMessages": "Siguiente: Escribir Mensajes",
     "creator.back": "Atrás",
@@ -89,6 +92,12 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Receiver view
     "view.notYet": "Aún no… esta carta espera su día",
+    "view.canOpenIn": "Podrás abrirlo en",
+    "view.days": "días",
+    "view.day": "día",
+    "view.hours": "horas",
+    "view.hour": "hora",
+    "view.and": "y",
   },
   en: {
     // Landing page
@@ -114,6 +123,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "creator.nameplaceholder": "Enter their name...",
     "creator.chooseLanguage": "Choose Language",
     "creator.languageDesc": "Select the language for your calendar messages",
+    "creator.chooseTimezone": "Time Zone",
+    "creator.timezoneDesc": "Cards unlock at midnight in this time zone",
+    "creator.selectTimezone": "Select your time zone",
     "creator.chooseTemplate": "Choose Your Template",
     "creator.nextMessages": "Next: Write Messages",
     "creator.back": "Back",
@@ -178,6 +190,12 @@ export const translations: Record<Language, Record<string, string>> = {
 
     // Receiver view
     "view.notYet": "Not yet... this one is waiting for its day",
+    "view.canOpenIn": "You can open it in",
+    "view.days": "days",
+    "view.day": "day",
+    "view.hours": "hours",
+    "view.hour": "hour",
+    "view.and": "and",
   },
 }
 

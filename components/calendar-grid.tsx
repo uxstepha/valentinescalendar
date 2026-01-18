@@ -158,13 +158,19 @@ function BackgroundDecorations({ template }: { template: string }) {
 export function CalendarGrid({ data, isPreview, isCreatorPreview, isReceiverView, currentDate }: CalendarGridProps) {
   const styles = templateStyles[data.template]
 
-  // Calculate which days are unlocked based on current date
+  // Calculate which days are unlocked based on current date and timezone
   const getUnlockedDays = () => {
     if (isCreatorPreview) return Array.from({ length: 14 }, (_, i) => i + 1)
     if (isPreview) return []
 
-    const now = currentDate || new Date()
-    const year = now.getFullYear()
+    let now = currentDate || new Date()
+    
+    // If timezone is set, get the current time in that timezone
+    if (data.timezone) {
+      const tzDate = new Date(now.toLocaleString("en-US", { timeZone: data.timezone }))
+      now = tzDate
+    }
+    
     const month = now.getMonth()
     const day = now.getDate()
 
@@ -238,6 +244,7 @@ export function CalendarGrid({ data, isPreview, isCreatorPreview, isReceiverView
               isCreatorPreview={isCreatorPreview}
               isReceiverView={isReceiverView}
               language={data.language || "es"}
+              timezone={data.timezone}
             />
           ))}
         </div>
