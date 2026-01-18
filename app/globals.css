@@ -1,0 +1,423 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Playful Valentine's theme with warm colors and hand-drawn feel */
+:root {
+  --background: oklch(0.97 0.02 15);
+  --foreground: oklch(0.25 0.04 350);
+  --card: oklch(0.99 0.01 20);
+  --card-foreground: oklch(0.25 0.04 350);
+  --popover: oklch(0.99 0.01 20);
+  --popover-foreground: oklch(0.25 0.04 350);
+  --primary: oklch(0.6 0.22 15);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.94 0.04 350);
+  --secondary-foreground: oklch(0.25 0.04 350);
+  --muted: oklch(0.95 0.02 20);
+  --muted-foreground: oklch(0.45 0.04 350);
+  --accent: oklch(0.85 0.15 30);
+  --accent-foreground: oklch(0.25 0.04 350);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.04 15);
+  --input: oklch(0.92 0.02 20);
+  --ring: oklch(0.6 0.22 15);
+  --chart-1: oklch(0.65 0.18 15);
+  --chart-2: oklch(0.75 0.15 350);
+  --chart-3: oklch(0.85 0.1 30);
+  --chart-4: oklch(0.7 0.12 0);
+  --chart-5: oklch(0.6 0.2 10);
+  --radius: 1rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.6 0.22 15);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.12 0.03 350);
+  --foreground: oklch(0.95 0.02 20);
+  --card: oklch(0.16 0.03 350);
+  --card-foreground: oklch(0.95 0.02 20);
+  --popover: oklch(0.16 0.03 350);
+  --popover-foreground: oklch(0.95 0.02 20);
+  --primary: oklch(0.7 0.2 15);
+  --primary-foreground: oklch(0.12 0.03 350);
+  --secondary: oklch(0.22 0.03 350);
+  --secondary-foreground: oklch(0.95 0.02 20);
+  --muted: oklch(0.22 0.03 350);
+  --muted-foreground: oklch(0.65 0.02 20);
+  --accent: oklch(0.4 0.15 15);
+  --accent-foreground: oklch(0.95 0.02 20);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.28 0.03 350);
+  --input: oklch(0.28 0.03 350);
+  --ring: oklch(0.7 0.2 15);
+  --chart-1: oklch(0.7 0.18 15);
+  --chart-2: oklch(0.65 0.15 350);
+  --chart-3: oklch(0.75 0.1 30);
+  --chart-4: oklch(0.6 0.12 0);
+  --chart-5: oklch(0.55 0.2 10);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* Fonts for different templates */
+  --font-sans: "Patrick Hand", "Comic Sans MS", cursive;
+  --font-display: "Caveat", cursive;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  /* Added elegant fonts for Elegant Minimal template */
+  --font-elegant: "Playfair Display", serif;
+  --font-sans-elegant: "Inter", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Playful hand-drawn effects */
+.sketchy-border {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border: 3px solid currentColor;
+}
+
+.doodle-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M2 8 Q25 2 50 8 T98 8' stroke='%23e11d48' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 12px;
+  padding-bottom: 8px;
+}
+
+.paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.brushstroke-bg {
+  position: relative;
+}
+
+.brushstroke-bg::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M5 50 Q20 30 40 50 T80 50 Q95 50 95 50' stroke='%23fda4af' stroke-width='40' fill='none' stroke-linecap='round' opacity='0.3'/%3E%3C/svg%3E")
+    no-repeat center;
+  background-size: 110% 110%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Wobbly card effect */
+.wobbly-card {
+  border-radius: 30px 4px 30px 4px;
+  transform: rotate(-0.5deg);
+  transition: transform 0.3s ease;
+}
+
+.wobbly-card:hover {
+  transform: rotate(0.5deg) scale(1.02);
+}
+
+/* Added watercolor effect for cute-pastel template */
+.watercolor-effect {
+  position: relative;
+}
+
+.watercolor-effect::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  background: radial-gradient(ellipse at 20% 30%, rgba(251, 207, 232, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(254, 215, 170, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(254, 202, 202, 0.3) 0%, transparent 60%);
+  filter: blur(8px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Added gold shimmer for elegant-minimal template */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(251, 191, 36, 0.1) 0%,
+    rgba(251, 191, 36, 0.3) 50%,
+    rgba(251, 191, 36, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Added starry night background for dreamy-night template */
+.starry-night {
+  position: relative;
+  overflow: hidden;
+}
+
+.starry-night::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, white, transparent),
+    radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 160px 20px, white, transparent),
+    radial-gradient(2px 2px at 200px 50px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 250px 90px, white, transparent),
+    radial-gradient(2px 2px at 300px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 350px 60px, white, transparent),
+    radial-gradient(2px 2px at 400px 20px, rgba(255, 255, 255, 0.6), transparent);
+  background-repeat: repeat;
+  background-size: 400px 100px;
+  animation: twinkle-stars 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle-stars {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Doodle decorations */
+.heart-doodle::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z' fill='%23fb7185' stroke='%23e11d48' stroke-width='1'/%3E%3C/svg%3E")
+    no-repeat;
+  top: -8px;
+  right: -8px;
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Scribble line */
+.scribble-line {
+  height: 4px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5 T60 5 T80 5 T100 5 T120 5 T140 5 T160 5 T180 5 T200 5' stroke='%23fda4af' stroke-width='2' fill='none'/%3E%3C/svg%3E")
+    repeat-x;
+}
+
+/* Star doodle */
+.star-doodle {
+  position: relative;
+}
+
+.star-doodle::before {
+  content: "✦";
+  position: absolute;
+  color: #fbbf24;
+  font-size: 14px;
+  top: -4px;
+  left: -12px;
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+/* Tape effect for cards */
+.tape-effect::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(135deg, rgba(253, 224, 71, 0.7) 0%, rgba(251, 191, 36, 0.6) 100%);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+/* Heart explosion animation */
+@keyframes heart-explode {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(1);
+    opacity: 0;
+  }
+}
+
+.heart-explode {
+  animation: heart-explode 1.2s ease-out forwards;
+}
+
+/* Confetti animation for playful-love */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  animation: confetti-fall 3s ease-in forwards;
+}
+
+/* Star shower animation for dreamy-night */
+@keyframes star-shower {
+  0% {
+    transform: translateY(-20px) translateX(0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.star-shower {
+  animation: star-shower 2s ease-in forwards;
+}
+
+/* Gift box animation for elegant-minimal */
+@keyframes box-shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes lid-open {
+  0% {
+    transform: rotateX(0deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(-120deg) translateY(-20px);
+  }
+}
+
+.box-shake {
+  animation: box-shake 0.5s ease-in-out 3;
+}
+
+.lid-open {
+  animation: lid-open 0.6s ease-out forwards;
+  transform-origin: top center;
+}
+
+/* Moon glow for dreamy-night */
+@keyframes moon-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(253, 224, 71, 0.4), 0 0 60px rgba(253, 224, 71, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(253, 224, 71, 0.6), 0 0 80px rgba(253, 224, 71, 0.3);
+  }
+}
+
+.moon-glow {
+  animation: moon-glow 3s ease-in-out infinite;
+}
