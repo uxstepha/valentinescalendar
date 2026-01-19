@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import type React from "react"
+import { createContext, useContext, useState } from "react"
 import type { CalendarData, DayCard, Template, Language } from "./types"
 
 interface CalendarContextType {
@@ -18,33 +19,12 @@ interface CalendarContextType {
   setPreviewMode: (mode: boolean) => void
 }
 
-const CalendarContext = createContext<CalendarContextType | null>(null)
+const CalendarContext = createContext<CalendarContextType | undefined>(undefined)
 
-export function CalendarProvider({ children }: { children: ReactNode }) {
+export function CalendarProvider({ children }: { children: React.ReactNode }) {
   const [calendarData, setCalendarData] = useState<CalendarData | null>(null)
   const [isPreviewMode, setPreviewMode] = useState(false)
-  const [language, setLanguageState] = useState<Language>("en")
-
-  const initializeCalendar = () => {
-    const id = Math.random().toString(36).substring(2, 15)
-    const cards: DayCard[] = Array.from({ length: 14 }, (_, i) => ({
-      day: i + 1,
-      message: "",
-    }))
-
-    setCalendarData({
-      id,
-      template: "romantic-soft",
-      cards,
-      createdAt: new Date().toISOString(),
-      language: "es",
-    })
-  }
-
-  const resetCalendar = () => {
-    setCalendarData(null)
-    setPreviewMode(false)
-  }
+  const [language, setLanguageState] = useState<Language>("es")
 
   const setTemplate = (template: Template) => {
     if (calendarData) {
@@ -80,10 +60,36 @@ export function CalendarProvider({ children }: { children: ReactNode }) {
 
   const getShareableLink = () => {
     if (calendarData) {
-      const encoded = btoa(JSON.stringify(calendarData))
+      // Use URL-safe base64 encoding
+      const jsonString = JSON.stringify(calendarData)
+      const encoded = btoa(unescape(encodeURIComponent(jsonString)))
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/, "")
       return `${typeof window !== "undefined" ? window.location.origin : ""}/view?data=${encoded}`
     }
     return ""
+  }
+
+  const initializeCalendar = () => {
+    const id = Math.random().toString(36).substring(2, 15)
+    const cards: DayCard[] = Array.from({ length: 14 }, (_, i) => ({
+      day: i + 1,
+      message: "",
+    }))
+
+    setCalendarData({
+      id,
+      template: "romantic-soft",
+      cards,
+      createdAt: new Date().toISOString(),
+      language: "es",
+    })
+  }
+
+  const resetCalendar = () => {
+    setCalendarData(null)
+    setPreviewMode(false)
   }
 
   return (
@@ -111,7 +117,7 @@ export function CalendarProvider({ children }: { children: ReactNode }) {
 export function useCalendar() {
   const context = useContext(CalendarContext)
   if (!context) {
-    throw new Error("useCalendar must be used within CalendarProvider")
+    throw new Error("useCalendar must be used within a CalendarProvider")
   }
   return context
 }

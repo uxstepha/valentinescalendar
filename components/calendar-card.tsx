@@ -748,13 +748,13 @@ export function CalendarCard({ card, template, isCreatorPreview = false, isRecei
         <text x="0" y="25" fill="#fbbf24" fontSize="12" className="animate-pulse">
           ✦
         </text>
-        <text x="88" y="30" fill="#fbbf24" fontSize="10" className="animate-pulse" style={{ animationDelay: "0.3s" }}>
+        <text x="88" y="30" fill="#fbbf24" fontSize="12" className="animate-pulse" style={{ animationDelay: "0.3s" }}>
           ✦
         </text>
         <text x="5" y="90" fill="#fbbf24" fontSize="8" className="animate-pulse" style={{ animationDelay: "0.5s" }}>
           ✦
         </text>
-        <text x="85" y="100" fill="#fbbf24" fontSize="10" className="animate-pulse" style={{ animationDelay: "0.7s" }}>
+        <text x="85" y="100" fill="#fbbf24" fontSize="12" className="animate-pulse" style={{ animationDelay: "0.7s" }}>
           ✦
         </text>
       </svg>

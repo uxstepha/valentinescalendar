@@ -34,8 +34,16 @@ function DoodleHeart({ className, filled }: { className?: string; filled?: boole
 export function MessageEditor({ cards, onUpdateCard, language }: MessageEditorProps) {
   const [activeDay, setActiveDay] = useState<number>(1)
   const [imageMode, setImageMode] = useState<"url" | "upload">("upload")
+  const [urlInput, setUrlInput] = useState<string>("")
   const fileInputRef = useRef<HTMLInputElement>(null)
   const activeCard = cards.find((c) => c.day === activeDay)
+
+  const handleAddImageFromUrl = () => {
+    if (urlInput && activeCard) {
+      onUpdateCard(activeCard.day, { imageUrl: urlInput })
+      setUrlInput("")
+    }
+  }
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -166,11 +174,23 @@ export function MessageEditor({ cards, onUpdateCard, language }: MessageEditorPr
                 {imageMode === "url" ? (
                   <div className="flex gap-2">
                     <Input
-                      value={activeCard.imageUrl?.startsWith("data:") ? "" : activeCard.imageUrl || ""}
-                      onChange={(e) => onUpdateCard(activeCard.day, { imageUrl: e.target.value })}
-                      placeholder="https://..."
+                      value={urlInput}
+                      onChange={(e) => setUrlInput(e.target.value)}
+                      placeholder={t("editor.pasteUrl", language)}
                       className="flex-1 border-2 border-dashed border-rose-200 rounded-xl"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          handleAddImageFromUrl()
+                        }
+                      }}
                     />
+                    <Button
+                      onClick={handleAddImageFromUrl}
+                      disabled={!urlInput}
+                      className="bg-rose-500 hover:bg-rose-600 rounded-xl font-[var(--font-display)]"
+                    >
+                      {t("editor.addFromUrl", language)}
+                    </Button>
                     {activeCard.imageUrl && (
                       <Button
                         variant="ghost"

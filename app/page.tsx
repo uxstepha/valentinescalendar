@@ -61,7 +61,7 @@ function Confetti() {
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            backgroundColor: ["#fda4af", "#fb7185", "#fbbf24", "#a78bfa", "#67e8f9"][Math.floor(Math.random() * 5)],
+            backgroundColor: ["#FDA4AF", "#fb7185", "#fbbf24", "#a78bfa", "#67e8f9"][Math.floor(Math.random() * 5)],
             animationDelay: `${Math.random() * 2}s`,
             animationDuration: `${2 + Math.random() * 2}s`,
           }}
@@ -127,29 +127,32 @@ function LandingContent() {
       </div>
 
       <div className="max-w-2xl mx-auto text-center space-y-8 relative z-10">
-        {/* Main content card */}
+        {/* Main content card - AQUÍ ESTÁ EL CAMBIO A ROJO VINO */}
         <div className="relative">
           {/* Tape decoration */}
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-gradient-to-r from-amber-200/80 to-amber-300/60 rotate-[-2deg] rounded-sm shadow-sm z-20" />
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl border-2 border-rose-200 relative wobbly-card">
+          <div className="backdrop-blur-sm rounded-3xl p-8 sm:p-12 shadow-xl border-2 border-rose-800/30 relative wobbly-card" style={{ backgroundColor: 'rgba(139, 21, 56, 0.95)' }}>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-rose-100 px-4 py-2 rounded-full text-rose-600 text-base font-medium mb-6 star-doodle">
+            <div className="inline-flex items-center gap-2 bg-rose-200/90 px-4 py-2 rounded-full text-rose-900 text-base font-medium mb-6 star-doodle">
               <Sparkles className="w-5 h-5" />
               <span className="font-[var(--font-display)] text-lg">{t("landing.badge", language)}</span>
             </div>
 
-            {/* Title with doodle underline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[var(--font-display)] text-rose-800 leading-tight mb-4">
-              {t("landing.title1", language)}
-              <br />
-              <span className="text-rose-500 doodle-underline inline-block">{t("landing.title2", language)}</span>
+            {/* Title with hierarchy */}
+            <h1 className="leading-tight mb-4">
+              <span className="block text-lg sm:text-xl text-rose-300 font-[var(--font-display)] mb-1">
+                {t("landing.title1", language)}
+              </span>
+              <span className="block text-4xl sm:text-5xl lg:text-6xl font-bold font-[var(--font-display)] doodle-underline" style={{ color: '#FFF2F4' }}>
+                {t("landing.title2", language)}
+              </span>
             </h1>
 
             {/* Cute arrow doodle pointing to description */}
             <DoodleArrow className="w-20 h-8 text-rose-300 mx-auto mb-2 rotate-[5deg]" />
 
-            <p className="text-lg sm:text-xl text-rose-700/80 max-w-lg mx-auto leading-relaxed text-pretty font-sans">
+            <p className="text-lg sm:text-xl text-rose-100/90 max-w-lg mx-auto leading-relaxed text-pretty font-sans">
               {t("landing.description", language)}
             </p>
 
@@ -158,13 +161,14 @@ function LandingContent() {
               <Button
                 onClick={initializeCalendar}
                 size="lg"
-                className="text-xl px-10 py-7 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 gap-3 font-[var(--font-display)] sketchy-border border-rose-400 bg-rose-500 hover:bg-rose-600"
+                className="text-xl px-10 py-7 shadow-lg hover:shadow-xl transition-all hover:scale-105 gap-3 font-[var(--font-display)] text-white hover:opacity-90"
+                style={{ backgroundColor: '#F893A3', borderRadius: '30px' }}
               >
                 <PenLine className="w-6 h-6" />
                 {t("landing.cta", language)}
               </Button>
               {/* Small hearts around button */}
-              <DoodleHeart className="absolute -top-3 -right-4 w-6 h-6 text-rose-400 animate-bounce" />
+              <DoodleHeart className="absolute -top-3 -right-4 w-6 h-6 text-rose-200 animate-bounce" />
             </div>
           </div>
         </div>

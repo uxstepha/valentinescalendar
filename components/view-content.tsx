@@ -18,7 +18,13 @@ export function ViewContent() {
     const data = searchParams.get("data")
     if (data) {
       try {
-        const decoded = JSON.parse(atob(data))
+        // Handle URL-safe base64 decoding
+        let base64 = data.replace(/-/g, "+").replace(/_/g, "/")
+        // Add padding if needed
+        while (base64.length % 4) {
+          base64 += "="
+        }
+        const decoded = JSON.parse(decodeURIComponent(escape(atob(base64))))
         setCalendarData(decoded)
         if (decoded.language) {
           setLanguage(decoded.language)

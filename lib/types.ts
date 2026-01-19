@@ -36,6 +36,7 @@ export const TIMEZONES = [
   { id: "America/New_York", label: "(GMT-05:00) Eastern Time (US & Canada)" },
   { id: "America/Caracas", label: "(GMT-04:00) Caracas" },
   { id: "America/Santiago", label: "(GMT-04:00) Santiago" },
+  { id: "America/Lima", label: "(GMT-05:00) Lima, Peru" },
   { id: "America/Sao_Paulo", label: "(GMT-03:00) Sao Paulo" },
   { id: "America/Argentina/Buenos_Aires", label: "(GMT-03:00) Buenos Aires" },
   { id: "Atlantic/South_Georgia", label: "(GMT-02:00) Mid-Atlantic" },

@@ -58,11 +58,11 @@ export function CreatorFlow() {
   return (
     <div className="min-h-screen bg-rose-50 paper-texture flex flex-col">
       {/* Progress bar - playful style */}
-      <div className="bg-white/80 backdrop-blur-sm border-b-2 border-dashed border-rose-200">
+      <div className="bg-[#722F37] border-b-2 border-[#5a252c]">
         <div className="max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between mb-3">
-            <h1 className="text-lg sm:text-xl font-[var(--font-display)] flex items-center gap-2 text-rose-800">
-              <DoodleHeart className="w-5 h-5 sm:w-6 sm:h-6 text-rose-500" filled />
+            <h1 className="text-lg sm:text-xl font-[var(--font-display)] flex items-center gap-2 text-white">
+              <DoodleHeart className="w-5 h-5 sm:w-6 sm:h-6 text-rose-200" filled />
               {t("creator.title", language)}
             </h1>
           </div>
@@ -70,7 +70,7 @@ export function CreatorFlow() {
           <div className="mb-3">
             <button
               onClick={resetCalendar}
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-rose-500 hover:text-rose-700 transition-colors font-[var(--font-display)]"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-rose-200 hover:text-white transition-colors font-[var(--font-display)]"
             >
               <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               {t("nav.returnHome", language)}
@@ -88,16 +88,16 @@ export function CreatorFlow() {
               >
                 <div
                   className={cn(
-                    "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-2 border-dashed transition-all font-[var(--font-display)] text-base sm:text-lg",
+                    "w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-2 transition-all font-[var(--font-display)] text-base sm:text-lg",
                     i <= currentStepIndex
-                      ? "bg-rose-500 border-rose-500 text-white"
-                      : "bg-white border-rose-200 text-rose-300",
+                      ? "bg-rose-200 border-rose-200 text-[#722F37]"
+                      : "bg-[#5a252c] border-[#5a252c] text-rose-300",
                     i < currentStepIndex && "hover:scale-110",
                   )}
                 >
                   {i + 1}
                 </div>
-                <span className={cn("text-[10px] sm:text-xs font-medium", i <= currentStepIndex ? "text-rose-600" : "text-rose-300")}>
+                <span className={cn("text-[10px] sm:text-xs font-medium", i <= currentStepIndex ? "text-rose-200" : "text-rose-300/60")}>
                   {s.label}
                 </span>
               </button>

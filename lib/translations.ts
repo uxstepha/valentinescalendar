@@ -62,6 +62,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "editor.changeImage": "Cambiar imagen",
     "editor.animation": "Animación",
     "editor.messages": "mensajes",
+    "editor.pasteUrl": "Pegar URL de imagen",
+    "editor.addFromUrl": "Agregar",
 
     // Template names
     "template.romantic-soft": "Romántico Suave",
@@ -160,6 +162,8 @@ export const translations: Record<Language, Record<string, string>> = {
     "editor.changeImage": "Change image",
     "editor.animation": "Animation",
     "editor.messages": "messages",
+    "editor.pasteUrl": "Paste image URL",
+    "editor.addFromUrl": "Add",
 
     // Template names
     "template.romantic-soft": "Romantic Soft",
