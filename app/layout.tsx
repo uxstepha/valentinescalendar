@@ -16,6 +16,10 @@ export const metadata: Metadata = {
     generator: 'v0.app'
 }
 
+export const metadata ={
+  icon:"/valentines-calendar.png",
+}
+
 export const viewport: Viewport = {
   themeColor: "#9F0505",
   width: "device-width",
