@@ -13,15 +13,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 export const metadata: Metadata = {
   title: "14 Days of Love - Valentine's Countdown",
   description: "Create a romantic 14-day countdown calendar to Valentine's Day",
-    generator: 'v0.app'
-}
-
-export const metadata = {
-  title: "Valentines Calendar",
-  description: "Un calendario bonito para San Valentín 💖",
   icons: {
     icon: "/valentines-calendar.ico", //
   },
+    generator: 'v0.app'
 };
 
 export const viewport: Viewport = {
