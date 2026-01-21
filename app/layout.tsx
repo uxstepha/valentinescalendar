@@ -20,7 +20,7 @@ export const metadata = {
   title: "Valentines Calendar",
   description: "Un calendario bonito para San Valentín 💖",
   icons: {
-    icon: "/valentines-calendar.png", //
+    icon: "/valentines-calendar.ico", //
   },
 };
 
