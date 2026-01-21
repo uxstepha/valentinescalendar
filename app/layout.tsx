@@ -16,9 +16,13 @@ export const metadata: Metadata = {
     generator: 'v0.app'
 }
 
-export const metadata ={
-  icon:"/valentines-calendar.png",
-}
+export const metadata = {
+  title: "Valentines Calendar",
+  description: "Un calendario bonito para San Valentín 💖",
+  icons: {
+    icon: "/valentines-calendar.png", //
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: "#9F0505",
