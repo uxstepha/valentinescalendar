@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "14 Days of Love - Valentine's Countdown",
   description: "Create a romantic 14-day countdown calendar to Valentine's Day",
   icons: {
-    icon: "/favicon-valentines-calendar.ico", //
+    icon: "/valentines-calendar.ico", //
   },
     generator: 'v0.app'
 };
